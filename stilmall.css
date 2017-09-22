@@ -1,0 +1,22 @@
+/* ska bli en stilmall */
+html, body{
+    margin: 0;
+}
+body{
+    background-color: skyblue;
+    background-repeat: no-repeat
+}
+header{
+    background-color: aliceblue;
+}
+main{
+    background-color: aliceblue  
+}
+footer{
+    background-color: rgb(255,255,255);
+    min-height: 50px;
+    position: absolute;
+    bottom: 0; 
+    width: 100%;
+}
+
