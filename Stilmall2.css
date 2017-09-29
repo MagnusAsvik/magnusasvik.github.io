@@ -1,0 +1,16 @@
+table{
+    background-color: antiquewhite;
+    padding: 10px;
+}
+th{
+    color: darkblue;
+}
+td{
+    border-bottom: 1px solid black;
+}
+tfoot{
+    background-color: lightblue;
+}
+th{
+    font-family: Arial, sans-serif;
+}
