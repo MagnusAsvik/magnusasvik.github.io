@@ -2,8 +2,13 @@ section{
     max-width: 49%;
     min-width: 320px;
     display: inline-block;
-    background-color:antiquewhite
+    background-color:antiquewhite;
+    vertical-align: top;
+    min-height: 490px;
 }
 img{
     float: right;
+}
+header{
+    display:block;
 }
