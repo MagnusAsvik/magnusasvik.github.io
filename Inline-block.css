@@ -1,0 +1,9 @@
+section{
+    max-width: 49%;
+    min-width: 320px;
+    display: inline-block;
+    background-color:antiquewhite
+}
+img{
+    float: right;
+}
