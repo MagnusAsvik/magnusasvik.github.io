@@ -1,9 +1,9 @@
-body{
-    background-color: rgb(182,171,236);
+html{
+     background-color: rgb(196,184,253);
 }
 header {
     display: block;
-    background-color: rgb(178,134,250);
+    background-color: rgb(173,130,243);
     font-family: sans-serif;
 }
 main{
@@ -25,5 +25,4 @@ footer a{
 }
 header p{
     font-weight: bold;
-    padding
 }
