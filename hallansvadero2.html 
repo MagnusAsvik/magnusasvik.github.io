@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <meta charset="utf-8">
+        <title>Två Inline-block</title>
+        <link rel="stylesheet"
+        href="hvstil1.css">
+    </head>
+    <body>
+        <div>
+        <header>
+            <h1>Hallands Väderö</h1>
+            <p>Hallands Väderö är namnet till trots en skånsk ö i Kattegatt, 3 km² stor, i Torekovs socken i Båstads kommun i nordvästra Skåne.</p>
+        </header>
+        <main>
+            <img src="Hallands.png.jpeg" alt=Hallands>
+            <p>Ön har unika natur- och kulturvärden och är sedan 1958 klassad som <b>naturreservat</b> samt som Natura 2000-EU-område. Dessutom har den ett milt klimat, där nederbörden är mindre och solskenstimmarna fler än fastlandets. Människans hävd på landskapet fortsätter idag och under sommarhalvåret betar får, hästar och nötkreatur på stora delar av ön. Kungseken (Quercus petrea) är Sveriges grövsta bergsek med sina 5,24 meter i omkrets och det finns en bokskog från 1700-talet. Fågel- och insektslivet är mycket rikt. Det finns också många ovanliga svampar och lavar. Vid kusten dominerar de röda gnejsklipporna men det finns även badstränder.</p>
+            <p>På öns nordvästra sida finns en fyr (uppförd 1884, numera helautomatiserad) med tillhörande fyrvaktarbostäder, som idag fungerar som uthyrningshus. På södra delen av ön finns ett natur- och kulturmuseum, med gratis inträde och öppettider från maj till september. I Söndre skog finns en gammal skeppskyrkogård. Turbåten på väg tillbaka till Torekov.</p>
+            <p>En turbåt från Torekov trafikerar Hallands Väderö under sommarhalvåret och vid dess ordinarie hamn, Sandhamn på Hallands Väderö finns ett kafé. Fyrvaktarbostäderna och fyren. I januari 2006 fastslog Lantmäteriverket att Svenska kyrkan är ensam ägare till hela ön enligt en uppgörelse från 1753. Ön antogs dessförinnan vara statlig. Svenska kyrkan äger ett par stugor på ön som den hyr ut till medlemmar.</p>
+            <h2>Fågelreservatet</h2>
+            <p>På öns södra/sydöstra sida finns ett stort fågelreservat i vilket även Vinga skär och en del små klippöar ingår. Här häckar främst havstrut, gråtrut, fiskmås och skrattmås men också diverse tärnor och grisslor. Det finns även en sälkoloni.</p>
+            <h2>Referenser</h2>
+            <ul>
+                <li>Persson, Jeanette (2009-10-16). ”Hallands Väderö”. Länsstyrelsen i Skåne. Läst 20 december 2009.</li>
+                <li>”Hallands Väderö, Nationalencyklopedin”. Läst 20 december 2009.</li>
+                <li>”Väderötrafiken: Torekov - Hallands Väderö, ToR”. Läst 20 december 2009. </li>
+                <li>”Väderötrafiken: Hallands Väderös Kafé”. Läst 20 december 2009.</li>
+            </ul>
+        </main>
+        <footer>
+            <h2>Externa länkar och litteratur</h2>
+            <a href="http://commons.wikimedia.org/wiki/Category:Hallands_V%C3%A4der%C3%B6">Wikimedia Commons har media som rör Hallands Väderö. </a>
+            <p>Källa för texten <a href="http://sv.wikipedia.org/wiki/Hallands_V%C3%A4der%C3%B6">wikipedia</a> Licens CC-BY</p>
+        </footer>
+        </div>
+    </body>  
+</html>
+
+      

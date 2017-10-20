@@ -1,0 +1,29 @@
+body{
+    background-color: rgb(182,171,236);
+}
+header {
+    display: block;
+    background-color: rgb(178,134,250);
+    font-family: sans-serif;
+}
+main{
+    display:block;
+   
+}
+div{
+    width: 900px;
+    margin: auto;   
+}
+header h1{
+    background-color: rgb(127,50,251);
+    color: white;
+    font-size: 30px;
+    padding: 2px;
+}
+footer a{
+    color: purple;
+}
+header p{
+    font-weight: bold;
+    padding
+}
