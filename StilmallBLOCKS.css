@@ -1,7 +1,21 @@
+body{
+    background: linear-gradient(132deg, #ec5218, #1665c1);
+    background-size: 400% 400%;
+    animation: BackgroundGradient 20s ease infinite;
+}
+@keyframes BackgroundGradient{
+    0%{background-position: 0% 50%;}
+    50%{background-position: 100% 50%;}
+    100{background-position: 0% 50%;}
+}
 nav{
     display: inline-block;
     width: 150px;
     vertical-align: top;
+    border-style: inset;
+    padding: 2px;
+    border-radius: 20px; 
+    border-color: black;
 }
 main{
     display: inline-block;
@@ -18,13 +32,9 @@ nav a{
     color: white; 
     box-shadow: 3px 3px 6px black;
 }
-body{
-    background-color: lightgrey
-}
 footer{
     position: absolute;
     bottom: 0;
-    font-style: oblique;
 }
 footer a{
     display:block;
@@ -39,7 +49,15 @@ footer a{
     margin-bottom: 5px;
 }
 h1{
-    font-style: oblique;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    text-shadow: 3px 3px 5px #000000;
+    text-decoration: underline;
+}
+h2{
+    font-family: 'Orbitron', sans-serif;
+    text-decoration-line: underline;
 }
 
 main{
@@ -47,9 +65,20 @@ main{
     text-align: center;
 }
 figure{
-        position:absolute;
+    position:absolute;
     bottom: 0;
     right: 0;
     margin: 0;
     font-size: 10px
 }
+.centeredImage {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -300px;
+}
+
+
+
