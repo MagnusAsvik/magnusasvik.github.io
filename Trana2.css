@@ -1,0 +1,56 @@
+h1{
+    display: inline-block;
+    width: 130px;
+    
+}
+.op{
+    display: inline-block;
+    width: 100px;
+}
+header{
+    background-color: gainsboro;
+    width: 100%;
+    padding: 5px;
+}
+nav{
+    width: 100%;
+    background-color: skyblue;
+    display: block;
+    padding: 5px;
+}
+main{
+    text-align: center;
+}
+main p, main h2{
+    text-align: left;
+}
+@media (min-width: 805px){
+    figure{
+        float: right;
+        width: 500px;
+        display: block;
+        padding: 20px;
+        display: block;
+    }
+    
+    nav{
+        display: inline-block;
+        width: 200px;
+        vertical-align: top;
+        height: 100%;
+        
+    }
+    main{
+        display: inline-block;
+        width: 1000px;
+    }
+    body{
+        height: 100%;
+    }
+    html{
+        height: 100%;
+    }
+    img{
+        width: 500px;
+    }
+}
