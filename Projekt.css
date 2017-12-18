@@ -32,6 +32,7 @@ li a {
 p {
     text-align: center;
     font-family: sans-serif;
+    line-height: 150%;
 }
 body{
     margin: 0;
