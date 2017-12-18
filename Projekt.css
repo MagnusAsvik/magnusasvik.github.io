@@ -41,7 +41,6 @@ h2 {
     text-align: center;
     padding-top: 10px;
     font-size: 35px;
-    
 }
 div#shoof{
     display: none;
@@ -56,7 +55,6 @@ button{
 li a:hover:not(.active) {
     background-color: #111;
 }
-
 .active {
     background-color: red;
 }
@@ -118,6 +116,5 @@ li a {
     img{
         width: 400px;
     }
-  
 }
 
