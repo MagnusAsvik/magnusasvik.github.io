@@ -4,6 +4,11 @@ var fireButton;
 var enemies;
 var rip = 0;
 var bloodsplat;
+
+//NYA VARIABLER:
+var bulletTime = 0;
+var bullet;
+
 var GameState = {
     preload: function(){
         this.load.image('BG1','assets/BG1.png');
@@ -15,6 +20,7 @@ var GameState = {
     create: function(){
         game.stage.backgroundColor = '#FFFFFF'
         this.add.sprite(0,40,'BG1');
+        
      
         //  Player1
         Player = this.add.sprite(100,100,'Smuz');
@@ -29,6 +35,7 @@ var GameState = {
         Player.body.collideWorldBounds = true;
         
         
+        /*
         weapon = game.add.weapon(30,'bullets');
         weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
         weapon.bulletAngleOffset = 0;
@@ -37,8 +44,23 @@ var GameState = {
         weapon.trackSprite(Player, 0, 0, true);
         weapon.physicsBodyType = Phaser.Physics.ARCADE
         weapon.enableBody = true;
-        
+        */
+    //NYTT:  
+        bullets = game.add.group();
+        bullets.enableBody = true;
+        bullets.physicsBodyType = Phaser.Physics.ARCADE;
 
+        for (var i = 0; i < 20; i++)
+        {
+            var b = bullets.create(0, 0, 'bullets');
+            b.name = 'bullet' + i;
+            b.exists = false;
+            b.visible = false;
+            b.checkWorldBounds = true;
+            b.events.onOutOfBounds.add(this.resetBullet, this);
+        }
+    //NYTT END
+        
         cursors = this.input.keyboard.createCursorKeys();
         fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
         
@@ -50,49 +72,69 @@ var GameState = {
         game.time.events.loop(1000, this.createEnemy, this);
       
         
-},
-    createEnemy: function() {
+    },
+        createEnemy: function() {
 
-        
-        for (var r = 0; r < 1 ; r++)
-        {
-            var enemy = enemies.create(game.rnd.integerInRange(0,3000), game.rnd.integerInRange(50, 700), 'shark');
-            enemy.anchor.setTo(0.5, 0.5);
-            
+
+            for (var r = 0; r < 1 ; r++)
+            {
+                var enemy = enemies.create(game.rnd.integerInRange(0,3000), game.rnd.integerInRange(50, 700), 'shark');
+                enemy.anchor.setTo(0.5, 0.5);
+
+            }
+
+    },
+        update: function(){
+            if (game.input.keyboard.isDown(Phaser.Keyboard.A)){
+                Player.x -= 4;
+                Player.animations.play('simma-v');
+
+        }
+        else if (game.input.keyboard.isDown(Phaser.Keyboard.D)){
+                Player.x += 4;
+                Player.animations.play('simma-h');
         }
 
-},
-    update: function(){
-        if (game.input.keyboard.isDown(Phaser.Keyboard.A)){
-            Player.x -= 4;
-            Player.animations.play('simma-v');
-            
-    }
-    else if (game.input.keyboard.isDown(Phaser.Keyboard.D)){
-            Player.x += 4;
-            Player.animations.play('simma-h');
-    }
+        if (game.input.keyboard.isDown(Phaser.Keyboard.W)){
+            Player.y -= 4;
+            Player.animations.play('simma-u');
+            Player.body.velocity.y = 0;
+        }
+        else{
+            Player.animations.add('simma-ej');
+        }
 
-    if (game.input.keyboard.isDown(Phaser.Keyboard.W)){
-        Player.y -= 4;
-        Player.animations.play('simma-u');
-        Player.body.velocity.y = 0;
-    }
-    else{
-        Player.animations.add('simma-ej');
-    }
-      
-    if (fireButton.isDown)
-    {
-        weapon.fire();
-    }
-    enemies.x -=1;
-    game.physics.arcade.overlap(weapon, enemies, this.collisionHandler, null, this);
-    
-},
-    collisionHandler: function(weapon, enemies){
-        console.log("hep");
-        weapon.kill();
+        if (fireButton.isDown)
+        {
+            //weapon.fire();
+            this.fireBullet();
+        }
+        enemies.x -=1;
+                                //OBS:
+        this.physics.arcade.overlap(bullets, enemies, this.collisionHandler, null, this);
+
+
+    },
+    collisionHandler: function(bullet, enemy){
+        console.log("KILL! ");
+        bullet.kill();
         enemy.kill();
+    },
+//NYA METODER:    
+    fireBullet: function() {
+        if (game.time.now > bulletTime)
+        {
+            bullet = bullets.getFirstExists(false);
+
+            if (bullet)
+            {
+                bullet.reset(Player.x + 6, Player.y - 8);
+                bullet.body.velocity.x = 300;
+                bulletTime = game.time.now + 150;
+            }
+        }
+    },
+    resetBullet: function(bullet) {
+        bullet.kill();
     }
 };
