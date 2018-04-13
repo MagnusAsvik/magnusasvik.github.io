@@ -1,9 +1,12 @@
 var Player;
-var weapon;
-var fireButton;
 var enemies;
 var rip = 0;
 var bloodsplat;
+var bulletTime = 0;
+var bullet;
+var hx,hy;
+var enemiesTotal = 0;
+var enemiesAlive = 0;
 var GameState = {
     preload: function(){
         this.load.image('BG1','assets/BG1.png');
@@ -23,21 +26,24 @@ var GameState = {
         Player.animations.add('simma-v',[0,1,2,3,4,5,6],10,true);
         Player.animations.add('simma-u',[0,1,2,3,4,5,6],10,true);
         //Player.animations.add('simma-n',[0,1,2,3,4,5,6],10,true);
-        Player.animations.add('simma-ej',[6,10],true);
+        Player.animations.add('simma-ej',[6],10,true);
         this.physics.enable(Player,Phaser.Physics.ARCADE);
         Player.body.gravity.y = 600;
         Player.body.collideWorldBounds = true;
         
+        bullets = game.add.group();
+        bullets.enableBody = true;
+        bullets.physicsBodyType = Phaser.Physics.ARCADE;
         
-        weapon = game.add.weapon(30,'bullets');
-        weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-        weapon.bulletAngleOffset = 0;
-        weapon.bulletSpeed = 400;
-        weapon.fireRate = 60;
-        weapon.trackSprite(Player, 0, 0, true);
-        weapon.physicsBodyType = Phaser.Physics.ARCADE
-        weapon.enableBody = true;
-        
+        for (var i = 0; i < 20; i++)
+            {
+            var b = bullets.create(0, 0, 'bullets');
+            b.name = 'bullet' + i;
+            b.exists = false;
+            b.visible = false;
+            b.checkWorldBounds = true;
+            b.events.onOutOfBounds.add(this.resetBullet, this);
+}
 
         cursors = this.input.keyboard.createCursorKeys();
         fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
@@ -47,19 +53,24 @@ var GameState = {
         enemies.enableBody = true;
         enemies.physicsBodyType = Phaser.Physics.ARCADE; 
         enemies.collideWorldBounds = true;
-        game.time.events.loop(1000, this.createEnemy, this);
+        game.time.events.loop(3000, this.createEnemy, this);
+        enemies.health = 3;
+        enemiesTotal = 20;
+        enemiesAlive = 20;
       
         
 },
     createEnemy: function() {
 
         
-        for (var r = 0; r < 1 ; r++)
-        {
-            var enemy = enemies.create(game.rnd.integerInRange(0,3000), game.rnd.integerInRange(50, 700), 'shark');
+       // for (var r = 0; r < 1 ; r++){
+            hx = game.rnd.integerInRange(1300,2000);
+            if(hx < 1280) hx=1280;
+            var enemy = enemies.create(hx, game.rnd.integerInRange(50, 650), 'shark');
             enemy.anchor.setTo(0.5, 0.5);
+            enemy.body.velocity.x = -100;
             
-        }
+        //}
 
 },
     update: function(){
@@ -84,15 +95,39 @@ var GameState = {
       
     if (fireButton.isDown)
     {
-        weapon.fire();
+        this.fireBullet();
     }
-    enemies.x -=1;
-    game.physics.arcade.overlap(weapon, enemies, this.collisionHandler, null, this);
+        
+    game.physics.arcade.overlap(bullets, enemies, this.collisionHandler, null, this);
     
 },
-    collisionHandler: function(weapon, enemies){
-        console.log("hep");
-        weapon.kill();
+    collisionHandler: function(bullet, enemy){
+        console.log("KILL!");
+        bullet.kill();
         enemy.kill();
-    }
+    },
+    fireBullet: function(){
+        if(game.time.now > bulletTime)
+        {
+            bullet = bullets.getFirstExists(false);
+                
+            if(bullet)
+            {
+                bullet.reset(Player.x + 6, Player.y - 8);
+                bullet.body.velocity.x = 500;
+                bulletTime = game.time.now + 150;
+            }
+        }
+    },
+    resetBullet: function(bullet) {
+        bullet.kill();
+    },
+    render: function() {
+
+    // game.debug.text('Active Bullets: ' + bullets.countLiving() + ' / ' + bullets.length, 32, 32);
+    game.debug.text('Enemies: ' + enemiesAlive + ' / ' + enemiesTotal, 1120
+                    , 60
+                   );
+
+}
 };
