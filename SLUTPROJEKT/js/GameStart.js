@@ -1,0 +1,5 @@
+var GameStart = {
+    create: function(){
+        
+    }
+};

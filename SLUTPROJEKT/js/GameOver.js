@@ -1,0 +1,5 @@
+var GameOver = {
+    create: function(){
+        
+    }
+};
