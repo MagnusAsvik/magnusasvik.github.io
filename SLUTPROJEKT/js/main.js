@@ -6,7 +6,8 @@ var game = new Phaser.Game(1280, 720, Phaser.AUTO);
 game.state.add('GameState', GameState);
 game.state.add('GameOver', GameOver);
 game.state.add('GameStart', GameStart);
+game.state.add('GameState2', GameState2);
 
 
 //Startar spelets första spelläge
-game.state.start('GameState');
+game.state.start('GameStart');

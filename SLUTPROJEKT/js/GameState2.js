@@ -1,20 +1,11 @@
-var Player;
-var enemies;
-var rip = 0;
-var bloodsplat;
-var bulletTime = 0;
-var bullet;
-var hx,hy;
-var counter = 0;
-var enemiesTotal = 0;
-var MyLoop;
-var GameState = {
+
+var GameState2 = {
     
     create: function(){
         game.stage.backgroundColor = '#FFFFFF'
         this.add.sprite(0,40,'BG1');
-        
-     
+        counter = 0;
+    
         //  Player1
         Player = this.add.sprite(100,100,'Smuz');
         Player.anchor.setTo(0.5);
@@ -55,7 +46,7 @@ var GameState = {
         enemies.physicsBodyType = Phaser.Physics.ARCADE; 
         enemies.collideWorldBounds = true;
         game.time.events.loop(1000, this.createEnemy, this);
-        enemiesTotal = 20;
+        enemiesTotal = 40;
         this.game.physics.arcade.collide(enemies);
 },
     
@@ -96,8 +87,8 @@ var GameState = {
         enemy.kill();
         counter++;
         console.log("KILL!" + counter);
-        if(counter >= 20){
-            //game.time.events.stop();
+        if(counter >= 40){
+            game.time.events.stop();
             game.state.start('GameState2');
             
         }
@@ -110,7 +101,7 @@ var GameState = {
             if(hx < 1280) hx=1280;
             var enemy = enemies.create(hx, game.rnd.integerInRange(50, 650), 'shark');
             enemy.anchor.setTo(0.5, 0.5);
-            enemy.body.velocity.x = -200;
+            enemy.body.velocity.x = -100;
             enemy.checkWorldBounds = true;
             enemy.events.onOutOfBounds.add(function(){game.state.start('GameOver')},this);
             
@@ -142,7 +133,7 @@ var GameState = {
     // game.debug.text('Active Bullets: ' + bullets.countLiving() + ' / ' + bullets.length, 32, 32);
     game.debug.text('Enemies: ' + counter + ' / ' + enemiesTotal, 1100
                     , 60);
-    game.debug.text('Level: 1', 20, 60);
+    game.debug.text('Level: 2', 20, 60);
 
-}
+    }
 };
