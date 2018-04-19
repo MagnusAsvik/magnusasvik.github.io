@@ -12,7 +12,9 @@ var GameState = {
     
     create: function(){
         game.stage.backgroundColor = '#FFFFFF'
-        this.add.sprite(0,40,'BG1');
+        this.add.sprite(0,0,'BG1');
+        this.add.sprite(5, 5, 'UI');
+        counter = 0;
         
      
         //  Player1
@@ -110,7 +112,7 @@ var GameState = {
             if(hx < 1280) hx=1280;
             var enemy = enemies.create(hx, game.rnd.integerInRange(50, 650), 'shark');
             enemy.anchor.setTo(0.5, 0.5);
-            enemy.body.velocity.x = -200;
+            enemy.body.velocity.x = -400;
             enemy.checkWorldBounds = true;
             enemy.events.onOutOfBounds.add(function(){game.state.start('GameOver')},this);
             
@@ -140,9 +142,9 @@ var GameState = {
     render: function() {
 
     // game.debug.text('Active Bullets: ' + bullets.countLiving() + ' / ' + bullets.length, 32, 32);
-    game.debug.text('Enemies: ' + counter + ' / ' + enemiesTotal, 1100
-                    , 60);
-    game.debug.text('Level: 1', 20, 60);
+    game.debug.text('Enemies: ' + counter + ' / ' + enemiesTotal, 15
+                    , 25);
+    game.debug.text('Level: 1', 15, 45);
 
 }
 };

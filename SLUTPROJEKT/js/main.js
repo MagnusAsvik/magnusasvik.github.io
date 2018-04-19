@@ -7,6 +7,7 @@ game.state.add('GameState', GameState);
 game.state.add('GameOver', GameOver);
 game.state.add('GameStart', GameStart);
 game.state.add('GameState2', GameState2);
+game.state.add('GameWin', GameWin);
 
 
 //Startar spelets första spelläge

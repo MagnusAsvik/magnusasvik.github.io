@@ -3,7 +3,8 @@ var GameState2 = {
     
     create: function(){
         game.stage.backgroundColor = '#FFFFFF'
-        this.add.sprite(0,40,'BG1');
+        this.add.sprite(0,0,'BG1');
+        this.add.sprite(5, 5, 'UI');
         counter = 0;
     
         //  Player1
@@ -25,7 +26,7 @@ var GameState2 = {
         bullets.physicsBodyType = Phaser.Physics.ARCADE;
         
         
-        for (var i = 0; i < 20; i++)
+        for (var i = 0; i < 40; i++)
             {
             var b = bullets.create(0, 0, 'bullets');
             b.name = 'bullet' + i;
@@ -101,7 +102,7 @@ var GameState2 = {
             if(hx < 1280) hx=1280;
             var enemy = enemies.create(hx, game.rnd.integerInRange(50, 650), 'shark');
             enemy.anchor.setTo(0.5, 0.5);
-            enemy.body.velocity.x = -100;
+            enemy.body.velocity.x = -600;
             enemy.checkWorldBounds = true;
             enemy.events.onOutOfBounds.add(function(){game.state.start('GameOver')},this);
             
@@ -116,7 +117,7 @@ var GameState2 = {
             if(bullet)
             {
                 bullet.reset(Player.x + 6, Player.y - 8);
-                bullet.body.velocity.x = 500;
+                bullet.body.velocity.x = 800;
                 bulletTime = game.time.now + 150;
             }
         }
@@ -131,9 +132,9 @@ var GameState2 = {
     render: function() {
 
     // game.debug.text('Active Bullets: ' + bullets.countLiving() + ' / ' + bullets.length, 32, 32);
-    game.debug.text('Enemies: ' + counter + ' / ' + enemiesTotal, 1100
-                    , 60);
-    game.debug.text('Level: 2', 20, 60);
+    game.debug.text('Enemies: ' + counter + ' / ' + enemiesTotal, 15
+                    , 25);
+    game.debug.text('Level: 2', 15, 45);
 
     }
 };

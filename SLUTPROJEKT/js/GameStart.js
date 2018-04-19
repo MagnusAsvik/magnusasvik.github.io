@@ -6,15 +6,18 @@ var GameStart = {
         this.load.spritesheet('bullets','assets/bullet1.png',20,20);
         this.load.spritesheet('blood','assets/blood.png',350,350);
         this.load.image('Play','assets/play.png');
+        this.load.image('UI','assets/futureui1.png');
+        this.load.spritesheet('restart', 'assets/restart.png', 175, 42);
+        this.load.image('Pannel','assets/Pannel.png');
+        this.load.spritesheet('restart2','assets/restart2.png', 175, 42);
     },
     create: function(){
-        game.stage.backgroundColor = '#FFFFFF'
-        this.add.sprite(0,40,'BG1');
-        button = this.game.add.button(game.world.centerX, game.world.centerY,'play', this.actionOnClick);
+        this.add.sprite(0,0,'BG1');
+        button = this.game.add.button(game.world.centerX, game.world.centerY,'Play', this.actionOnClick);
         button.anchor.setTo(0.5);
     
         
-        text = this.game.add.text(game.world.centerX, 180, 'Play');
+        text = this.game.add.text(game.world.centerX, 200, 'Play');
         
         //Centers the text
         text.anchor.set(0.5);
@@ -23,10 +26,10 @@ var GameStart = {
         //Our font + size
         text.font = 'Arial';
         text.fontWeight = 'bold';
-        text.fontsize = 70;
+        text.fontSize = 70;
     },
     actionOnClick: function(){
-        game.state.start('GameState',true,false);
+        game.state.start('GameWin',true,false);
     }
         
 };
