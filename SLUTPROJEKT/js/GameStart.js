@@ -29,7 +29,7 @@ var GameStart = {
         text.fontSize = 70;
     },
     actionOnClick: function(){
-        game.state.start('GameWin',true,false);
+        game.state.start('GameState',true,false);
     }
         
 };
