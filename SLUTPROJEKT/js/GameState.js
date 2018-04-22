@@ -19,8 +19,6 @@ var GameState = {
         // Skapa spelare, egenskaper och animation
         Player = this.add.sprite(100,100,'Smuz');
         Player.anchor.setTo(0.5);
-        Player.animations.add('simma-h',[0,1,2,3,4,5,6],10,true);
-        Player.animations.add('simma-v',[0,1,2,3,4,5,6],10,true);
         Player.animations.add('simma-u',[0,1,2,3,4,5,6],10,true);
         Player.animations.add('simma-ej',[6],10,true);
         this.physics.enable(Player,Phaser.Physics.ARCADE);
@@ -64,10 +62,10 @@ var GameState = {
         // Kontroller och spela animation
         if (game.input.keyboard.isDown(Phaser.Keyboard.A)){
             Player.x -= 4;
-            Player.animations.play('simma-v');
+            Player.animations.play('simma-u');
         }else if (game.input.keyboard.isDown(Phaser.Keyboard.D)){
             Player.x += 4;
-            Player.animations.play('simma-h');
+            Player.animations.play('simma-u');
         }if (game.input.keyboard.isDown(Phaser.Keyboard.W)){
             Player.y -= 4;
             Player.animations.play('simma-u');
